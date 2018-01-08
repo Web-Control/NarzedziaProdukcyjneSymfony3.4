@@ -1,0 +1,32 @@
+{% extends 'NarzedziaProdukcyjne/ramy.html.twig' %}
+
+{% block content %}
+{{ parent() }}
+<br>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link {{ app.request.attributes.get('_route') == 'fos_user_registration_register' ? 'active' }}" href="{{ path('fos_user_registration_register') }}">Rejestracja</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {{ app.request.attributes.get('_route') == 'roleUzytkownika' ? 'active' }}" href="{{ path('roleUzytkownika') }}">Role</a>
+  </li>
+</ul>
+
+<br><br>
+
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Nadaj role użytkownikom</h1>
+                {{ form_start(roleUzytkownikaForm) }}
+
+                    {{ form_widget(roleUzytkownikaForm) }}
+
+                    <button type="submit" class="btn btn-primary">Nadaj Role</button>
+
+                {{ form_end(roleUzytkownikaForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

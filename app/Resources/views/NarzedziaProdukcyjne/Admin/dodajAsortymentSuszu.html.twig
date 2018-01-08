@@ -1,0 +1,32 @@
+{% extends 'NarzedziaProdukcyjne/ramy.html.twig' %}
+
+{% block content %}
+{{ parent() }}
+<br>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link {{ app.request.attributes.get('_route') == 'dodajAsortymentSuszu' ? 'active' }}" href="{{ path('dodajAsortymentSuszu') }}">Asortyment Suszu</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link {{ app.request.attributes.get('_route') == 'dodajAsortymentSterylizacji' ? 'active' }}" href="#">Asortyment Sterylizacji</a>
+  </li>
+</ul>
+
+<br><br>
+
+<div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Dodaj nowy asortyment Suszu</h1>
+                {{ form_start(dodajAsortymentSuszuForm) }}
+
+                    {{ form_widget(dodajAsortymentSuszuForm) }}
+
+                    <button type="submit" class="btn btn-primary">Dodaj</button>
+
+                {{ form_end(dodajAsortymentSuszuForm) }}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
